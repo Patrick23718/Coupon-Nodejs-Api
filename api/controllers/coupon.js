@@ -8,7 +8,8 @@ exports.coupons_create_coupon = (req, res, next) => {
         amount: req.body.amount,
         expireDate: req.body.expireDate,
         remeningNumber: req.body.remeningNumber,
-        isActive: req.body.isActive
+        isActive: req.body.isActive,
+        companyId: req.body.companyId
     });
 
     if(newCoupon.isPercent == true && newCoupon.amount>100){
@@ -248,6 +249,7 @@ exports.coupons_validity_coupon = (req, res, next) => {
                 console.log(err);
                 res.statut(500).json({ error: err });
             });
+            next();
             
         } else {
             res.status(404).json({ message: "No coupon found for the provided ID" })

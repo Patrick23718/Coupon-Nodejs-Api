@@ -37,6 +37,14 @@ const CouponSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    companyId: {
+        type: String,
+        required: true
+    },
+    productId:{
+        type: String,
+        default: ""
+    },
     isActive: { 
         type: Boolean, 
         required: true, 
